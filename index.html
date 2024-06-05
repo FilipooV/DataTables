@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataTables</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <table id="Table" class="display">
+        <thead>
+            <tr>
+                <th>ID </th>
+                <th>Tytuł</th>
+                <th>Email</th>
+                <th>Tekst</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#Table').DataTable({
+                "ajax": {
+                    "url": "https://jsonplaceholder.typicode.com/comments",
+                    "dataSrc": ""
+                },
+                "columns": [{
+                        "data": "postId"
+                    },
+                    {
+                        "data": "name"
+                    },
+                    {
+                        "data": "email"
+                    },
+                    {
+                        "data": "body"
+                    }
+                ],
+                "paging": true,
+                "ordering": true,
+                "searching": true,
+                "pageLength": 100
+            });
+        });
+    </script>
+</body>
+
+</html>
